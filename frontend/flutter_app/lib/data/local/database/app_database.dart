@@ -233,6 +233,33 @@ class AppDatabase {
     } catch (_) {}
 
     // App settings table
+        // Combos table
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS combos (
+        id TEXT PRIMARY KEY,
+        name TEXT NOT NULL,
+        description TEXT,
+        selling_price REAL NOT NULL,
+        cost_price REAL NOT NULL DEFAULT 0.0,
+        image_asset TEXT NOT NULL,
+        badge TEXT,
+        is_active INTEGER NOT NULL DEFAULT 1,
+        created_at TEXT NOT NULL,
+        updated_at TEXT NOT NULL
+      )
+    ''');
+
+    // Combo items table
+    await db.execute('''
+      CREATE TABLE IF NOT EXISTS combo_items (
+        id TEXT PRIMARY KEY,
+        combo_id TEXT NOT NULL,
+        product_id TEXT NOT NULL,
+        quantity INTEGER NOT NULL DEFAULT 1,
+        FOREIGN KEY (combo_id) REFERENCES combos(id) ON DELETE CASCADE
+      )
+    ''');
+
     await db.execute('''
       CREATE TABLE IF NOT EXISTS app_settings (
         key TEXT PRIMARY KEY,
@@ -252,6 +279,7 @@ class AppDatabase {
 
     // Ensure initial settings exist
     await _seedDefaultSettings(db);
+    await _seedDefaultCombos(db);
 
     // Sync menu products (seeds missing items, retires old drinks, preserves user customizations)
     await syncMenuProducts(db);
@@ -406,6 +434,66 @@ class AppDatabase {
     }
 
     await _seedDefaultSettings(db);
+    await _seedDefaultCombos(db);
+  }
+
+  
+  Future<void> _seedDefaultCombos(Database db) async {
+    final now = DateTime.now().toIso8601String();
+    final defaultCombos = [
+      {
+        'id': 'classic_combo',
+        'name': 'Classic Combo',
+        'description': 'Classic Salted Fries + Drink',
+        'selling_price': 110.0,
+        'cost_price': 43.0,
+        'image_asset': AppConstants.imgClassicCombo,
+        'badge': 'Save ₹10',
+        'is_active': 1,
+        'created_at': now,
+        'updated_at': now,
+      },
+      {
+        'id': 'peri_peri_combo',
+        'name': 'Peri Peri Combo',
+        'description': 'Peri Peri Fries + Drink',
+        'selling_price': 120.0,
+        'cost_price': 46.0,
+        'image_asset': AppConstants.imgPeriPeriCombo,
+        'badge': 'Spicy Combo',
+        'is_active': 1,
+        'created_at': now,
+        'updated_at': now,
+      },
+      {
+        'id': 'cheese_bomb_combo',
+        'name': 'Cheese Bomb Combo',
+        'description': 'Loaded Cheese Fries + Drink',
+        'selling_price': 140.0,
+        'cost_price': 56.0,
+        'image_asset': AppConstants.imgCheeseBombCombo,
+        'badge': 'Bestseller',
+        'is_active': 1,
+        'created_at': now,
+        'updated_at': now,
+      },
+      {
+        'id': 'roll_and_sip',
+        'name': 'Roll & Sip',
+        'description': 'Veg Spring Rolls + Drink',
+        'selling_price': 100.0,
+        'cost_price': 38.0,
+        'image_asset': AppConstants.imgRollAndSip,
+        'badge': 'Value Combo',
+        'is_active': 1,
+        'created_at': now,
+        'updated_at': now,
+      },
+    ];
+
+    for (final combo in defaultCombos) {
+      await db.insert('combos', combo, conflictAlgorithm: ConflictAlgorithm.ignore);
+    }
   }
 
   Future<void> _seedDefaultSettings(Database db) async {

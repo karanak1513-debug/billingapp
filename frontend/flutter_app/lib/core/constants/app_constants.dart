@@ -39,4 +39,23 @@ class AppConstants {
   static const String imgThunderCola = 'assets/images/products/thunder_cola.png';
   static const String imgMangoChill = 'assets/images/products/mango_chill.png';
   static const String imgNimbuPani = 'assets/food/nimbu_pani.png';
+
+  static const String brandFullName = "Snacks O'Clock × Chill O'Clock";
+  static const String drinksBrandName = "Chill O'Clock";
+
+  // Combos Assets
+  static const String imgClassicCombo = 'assets/images/combos/classic_combo.png';
+  static const String imgPeriPeriCombo = 'assets/images/combos/peri_peri_combo.png';
+  static const String imgCheeseBombCombo = 'assets/images/combos/cheese_bomb_combo.png';
+  static const String imgRollAndSip = 'assets/images/combos/roll_and_sip.png';
+
+  // Additional Food Assets
+  static const String imgChowmeinSpringRoll = 'assets/food/chowmein_spring_roll.png';
+  static const String imgMintMojito = 'assets/images/products/mint_mojito.png';
+  static const String imgCranberryMojito = 'assets/images/products/cranberry_mojito.png';
+
+  // Reference Posters
+  static const String imgSnacksPoster = 'assets/images/posters/snacks_poster.jpg';
+  static const String imgDrinksPoster = 'assets/images/posters/drinks_poster.jpg';
+  static const String imgCombosPoster = 'assets/images/posters/combos_poster.jpg';
 }

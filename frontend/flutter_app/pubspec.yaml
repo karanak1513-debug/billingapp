@@ -76,6 +76,8 @@ flutter:
     - assets/images/
     - assets/images/products/
     - assets/images/branding/
+    - assets/images/combos/
+    - assets/images/posters/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
