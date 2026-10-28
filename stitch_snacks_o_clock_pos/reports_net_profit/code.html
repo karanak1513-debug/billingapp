@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>Snacks O'Clock POS</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "tertiary-container": "#411f00", "secondary-fixed": "#ffdbce", "surface-container-low": "#fff0ef", "on-background": "#2d1515", "on-error-container": "#93000a", "on-surface-variant": "#524345", "primary-container": "#4a1521", "outline": "#857374", "on-secondary-container": "#772f0d", "surface-container-highest": "#ffdad8", "inverse-surface": "#452929", "surface-container-lowest": "#ffffff", "secondary": "#974723", "surface-container-high": "#ffe1e0", "on-tertiary-container": "#d77604", "inverse-on-surface": "#ffedeb", "surface-dim": "#fccfce", "on-tertiary-fixed": "#2f1500", "on-primary": "#ffffff", "outline-variant": "#d7c1c3", "on-primary-fixed-variant": "#71333f", "primary-fixed-dim": "#ffb2bd", "surface-bright": "#fff8f7", "error-container": "#ffdad6", "on-primary-container": "#c57985", "on-tertiary-fixed-variant": "#6e3900", "on-primary-fixed": "#3a0815", "secondary-fixed-dim": "#ffb598", "inverse-primary": "#ffb2bd", "background": "#fff8f7", "on-secondary-fixed-variant": "#79310e", "tertiary-fixed-dim": "#ffb77d", "on-surface": "#2d1515", "error": "#ba1a1a", "surface-tint": "#8d4a56", "tertiary-fixed": "#ffdcc3", "on-error": "#ffffff", "primary-fixed": "#ffd9dd", "on-secondary-fixed": "#370e00", "primary": "#2f020d", "secondary-container": "#ff996e", "on-secondary": "#ffffff", "surface": "#fff8f7", "on-tertiary": "#ffffff", "tertiary": "#230e00", "surface-container": "#ffe9e8", "surface-variant": "#ffdad8" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "0.5rem", "space-md": "0.75rem", "margin": "1.5rem", "space-xl": "2rem", "margin-mobile": "1rem", "gutter": "1rem", "space-xs": "0.25rem", "gutter-mobile": "0.75rem", "space-lg": "1.25rem" }, fontFamily: { "body-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "numeric-keypad": ["Space Grotesk"], "headline-lg": ["Epilogue"], "label-sm": ["Space Grotesk"], "headline-lg-mobile": ["Epilogue"], "display": ["Epilogue"], "label-md": ["Space Grotesk"], "body-md": ["Plus Jakarta Sans"], "headline-md": ["Epilogue"], "headline-sm": ["Epilogue"], "currency-price": ["Space Grotesk"] }, fontSize: { "body-lg": ["16px", { lineHeight: "24px", fontWeight: "500" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "numeric-keypad": ["24px", { lineHeight: "28px", letterSpacing: "0.02em", fontWeight: "700" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "700" }], "display": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }], "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.03em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "headline-md": ["22px", { lineHeight: "28px", fontWeight: "600" }], "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }], "currency-price": ["20px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "700" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; } body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-primary-container/95 backdrop-blur-xl shadow-[0_4px_20px_rgba(74,21,33,0.15)] pt-safe"><div class="h-20 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex flex-col justify-center min-w-0"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider">Active Shift • Live</span></div><h1 class="font-headline-sm text-headline-sm text-on-primary truncate tracking-tight">Snacks O'Clock</h1><p class="font-body-sm text-body-sm text-secondary-fixed/90 truncate">Snacks • Sips • Good Vibes</p></div><div class="flex items-center gap-space-sm shrink-0"><button aria-label="Quick Cart" class="relative flex items-center justify-center min-w-[44px] min-h-[44px] px-space-sm rounded-xl bg-tertiary-container/80 text-secondary-container active:scale-95 transition-transform"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span class="absolute -top-1 -right-1 flex items-center justify-center min-w-[20px] h-[20px] px-1 rounded-full bg-secondary text-on-secondary font-label-sm text-[10px] font-bold shadow-md">0</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin-mobile pt-20 pb-28 bg-surface min-h-screen"><div class="flex flex-col w-full gap-space-lg">
+<div class="flex items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[18px]">query_stats</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Financial Intelligence</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface truncate">Shift &amp; Margin Reports</h2>
+</div>
+<button class="flex items-center gap-1.5 px-space-md py-space-sm rounded-xl bg-surface-container-high text-on-surface-variant font-label-md text-label-md active:scale-95 transition-transform shadow-sm" id="exportReportBtn">
+<span class="material-symbols-outlined text-[18px] text-primary-container">ios_share</span>
+<span>Export</span>
+</button>
+</div>
+<div class="flex gap-space-xs overflow-x-auto pb-1 -mx-margin-mobile px-margin-mobile scrollbar-none" id="periodTabs">
+<button class="period-tab shrink-0 px-space-md py-space-xs rounded-full bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all flex items-center gap-1.5" data-period="live">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span>Today's Shift (Live)</span>
+</button>
+<button class="period-tab shrink-0 px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all" data-period="fest1">
+      Festival Day 1
+    </button>
+<button class="period-tab shrink-0 px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all" data-period="fest2">
+      Day 2
+    </button>
+<button class="period-tab shrink-0 px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all" data-period="week">
+      Full Week
+    </button>
+</div>
+<div class="grid grid-cols-2 gap-gutter-mobile">
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(43,19,19,0.06)] flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Gross Sales</span>
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</div>
+</div>
+<div>
+<div class="font-currency-price text-currency-price text-on-surface" id="kpiGross">₹14,860</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-sm text-label-sm text-secondary font-bold">68 Bills</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">avg ₹218/bill</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-highest rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(43,19,19,0.06)] flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-primary-container font-semibold">Net Profit (Est.)</span>
+<div class="w-7 h-7 rounded-lg bg-primary-container text-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+</div>
+</div>
+<div>
+<div class="font-currency-price text-currency-price text-primary" id="kpiProfit">₹8,420</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-sm text-label-sm px-1.5 py-0.2 rounded-full bg-primary-container text-on-primary">56.7%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Healthy Margin</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(43,19,19,0.06)] flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cash in Drawer</span>
+<div class="w-7 h-7 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</div>
+</div>
+<div>
+<div class="font-currency-price text-currency-price text-on-surface">₹6,180</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 truncate">Float ₹1.5k + Cash ₹4.68k</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(43,19,19,0.06)] flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">PhonePe / UPI</span>
+<div class="w-7 h-7 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+</div>
+</div>
+<div>
+<div class="font-currency-price text-currency-price text-on-surface">₹10,180</div>
+<div class="flex items-center gap-1 mt-0.5">
+<span class="font-label-sm text-label-sm text-secondary font-bold">Direct Bank</span>
+<span class="material-symbols-outlined text-secondary text-[14px]">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-[0_4px_12px_-2px_rgba(74,21,33,0.08)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">lock_clock</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface leading-tight">Cash Drawer Balance</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live physical drawer reconciliation</p>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary-container font-label-sm text-label-sm font-semibold">TILL #1</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs bg-surface-container-low rounded-xl p-space-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Opening Float</span>
+<span class="font-currency-price text-[16px] text-on-surface">₹1,500</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-semibold">+ Cash Sales</span>
+<span class="font-currency-price text-[16px] text-secondary">₹4,680</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">- Expenses</span>
+<span class="font-currency-price text-[16px] text-on-surface-variant">₹0</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<div>
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">Expected in Box</span>
+<div class="font-headline-md text-headline-md text-primary-container">₹6,180</div>
+</div>
+<button class="px-space-lg py-space-sm rounded-xl bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-2 shadow-md active:scale-95 transition-transform" id="reconcileBtn">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Reconcile Till</span>
+</button>
+</div>
+<div class="hidden flex-col gap-space-sm pt-space-md bg-surface-container rounded-lg p-space-md" id="reconcileDrawer">
+<div class="flex justify-between items-center">
+<span class="font-label-md text-label-md text-on-surface font-bold">Count Physical Cash</span>
+<button class="text-on-surface-variant hover:text-on-surface" id="closeReconcileBtn">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container-lowest px-3 py-2 rounded-lg font-numeric-keypad text-[18px] text-on-surface placeholder:text-outline focus:outline-none" id="countedCashInput" placeholder="Enter counted ₹" type="number" value="6180"/>
+<button class="px-space-md py-2 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md font-bold" id="confirmTillBtn">Verify</button>
+</div>
+<p class="font-body-sm text-body-sm text-secondary font-semibold hidden flex items-center gap-1" id="reconcileFeedback">
+<span class="material-symbols-outlined text-[16px]">task_alt</span> Drawer is perfectly balanced! Difference: ₹0
+      </p>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-[0_4px_12px_-2px_rgba(43,19,19,0.06)] flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-[20px]">donut_small</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">COGS &amp; Margin Split</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Direct ingredients, packaging &amp; profit ratio</p>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container text-on-surface-variant hover:text-primary-container">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+<div class="flex h-4 w-full rounded-full overflow-hidden bg-surface-container-high p-0.5 shadow-inner">
+<div class="bg-primary-container rounded-l-full" style="width: 56.7%" title="Net Profit: 56.7%"></div>
+<div class="bg-secondary" style="width: 34.6%" title="Raw Food COGS: 34.6%"></div>
+<div class="bg-secondary-container rounded-r-full" style="width: 8.7%" title="Packaging &amp; Oil: 8.7%"></div>
+</div>
+<div class="grid grid-cols-3 gap-space-xs pt-1">
+<div class="flex flex-col p-space-xs rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-1 mb-1">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Net Profit</span>
+</div>
+<span class="font-currency-price text-[15px] text-primary-container">₹8,420</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">56.7% yield</span>
+</div>
+<div class="flex flex-col p-space-xs rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-1 mb-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Raw COGS</span>
+</div>
+<span class="font-currency-price text-[15px] text-on-surface">₹5,140</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">34.6% food</span>
+</div>
+<div class="flex flex-col p-space-xs rounded-lg bg-surface-container-low">
+<div class="flex items-center gap-1 mb-1">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Pack &amp; Oil</span>
+</div>
+<span class="font-currency-price text-[15px] text-on-surface">₹1,300</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">8.7% supplies</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs bg-surface-container rounded-xl p-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">edit_note</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Ingredient Cost Settings</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Updated today at 11:30 AM</span>
+</div>
+</div>
+<button class="px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-primary-container font-label-sm text-label-sm font-bold shadow-sm active:scale-95 transition-transform">
+        Edit Unit Costs
+      </button>
+</div>
+</div>
+<div class="flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[22px]">military_tech</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Best-Sellers Leaderboard</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ranked by order volume &amp; snack popularity</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface px-2.5 py-1 rounded-full font-semibold">6 Items Active</span>
+</div>
+<div class="flex flex-col gap-space-sm" id="leaderboardList">
+<div class="relative bg-surface-container-lowest rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(43,19,19,0.06)] flex items-center justify-between overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary-container"></div>
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0 w-14 h-14 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Close up shot of crispy golden peri peri french fries dusted with spicy red chili seasoning in a street food paper pouch on warm rustic stall background, soft daylight, food photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_FdclLdwnw6r4jM_s-E_uqmenarIOp6eZcsFwL7CXYZz-y92qTU11Vugf-nWmI31Y0XjWtUXXuJ61BjHQXEKbz1_T3VvzmCbiL1CLoYN6SdE70qNvYehAXS7kPI9jOF8YskSBchtuoRLBZcrf3_MrwLVqVAy6H5tsdTD4PdW02yYi79kj605pY9VaiHAhDr1AvKh16IzfZGXP4NlnmL48cw4Uoui_YT7lVIEVrdkmRmJM0Za3IBFitg"/>
+<span class="absolute top-0 left-0 bg-primary-container text-secondary-fixed text-[10px] font-bold px-1 rounded-br">#1</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Peri Peri Fries</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary-fixed text-on-secondary-container text-[10px] font-bold">Top Seller 🏆</span>
+</div>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant">34 orders</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">48% of snack volume</span>
+</div>
+<div class="w-36 h-1.5 bg-surface-container rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 100%"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-currency-price text-currency-price text-on-surface">₹2,720</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">₹80 ea</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(43,19,19,0.04)] flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0 w-14 h-14 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Freshly fried salted french fries served in a paper cup on a warm food counter, warm ambient lighting, appetizing appetizing street food" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKglDEqEcyRnTLTIx26oRokxrRpc1XWb_7SKhF5eF-4iVntnfgUrzDzKDaM3d654yk995B300PzQ8BQyZGN53Dc0kodGPLqX_YYzKX-VGes8R-qkEkzT0XRfQkU48xCtzBZfLBEpgms52AJxWa_b-jN6lpHk2HnrPMx9ivtzRUm3vaNT_J5chscjeTzrjvcDM0NOUoLA32bSftuWyarDEzmppw2eaaWksTEOHq6-xHGO_p1FY9oa2gAQ"/>
+<span class="absolute top-0 left-0 bg-surface-container-highest text-on-surface text-[10px] font-bold px-1 rounded-br">#2</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Classic Salted Fries</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant">28 orders</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Fast turn</span>
+</div>
+<div class="w-36 h-1.5 bg-surface-container rounded-full mt-1.5 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 82%"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-currency-price text-currency-price text-on-surface">₹1,960</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">₹70 ea</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(43,19,19,0.04)] flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0 w-14 h-14 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Loaded cheese fries with melted golden cheddar and jalapeño bits served hot in street snack packaging, food vendor photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy_jW-jYAdAPyhRIRyVeTTAe6ydYbz-CGrqti67WQM5jB3s9CrvT_CrFbYDU6K2FW0VfFBn7UX12XfSFYGnsrcYPmxldTXJSN25xGXYAiBa5odBHpHdqDCY4AQEmEc_ieuD7iZBQIex9PTbuHi8DdvMS83d_7HA7Mz4X5tKdmgOjJPYtlCsmLZx-yhFtryGiQMDKrKo7PI_h0gFT6GJflJzL321TedsYlayNp8xXKcuG9FlZDoOTABfw"/>
+<span class="absolute top-0 left-0 bg-surface-container-highest text-on-surface text-[10px] font-bold px-1 rounded-br">#3</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Cheese Loaded Fries</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant">22 orders</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-secondary font-semibold">High ticket</span>
+</div>
+<div class="w-36 h-1.5 bg-surface-container rounded-full mt-1.5 overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 65%"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-currency-price text-currency-price text-on-surface">₹2,200</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">₹100 ea</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(43,19,19,0.04)] flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0 w-14 h-14 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Crispy sliced vegetarian spring rolls with sweet chili dipping sauce in a small bamboo tray, street cafe snack" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzIazCxjDJ-FsSJGAlrZ6cKQVyF9P1YaU9zbCVNSXBVNi89qEFOdcM72qoMw5moiqjTuicNMUTkT_a0OCLIdLUFEL-nBpYGfpNIeG09Pdqe73kcdiuzTTV9cMpHqd45vXhRrR0P3b9c3OqItcG6q_XVazEsoZWsJaAAJ8z1mXlevRUhB-EBIVfskrR0V1Iaz91uIhdNcRH3-qhKg8mriWLmNDYEhTNsJH9jnuTANNeskNy9ISTSC8Nig"/>
+<span class="absolute top-0 left-0 bg-surface-container-highest text-on-surface text-[10px] font-bold px-1 rounded-br">#4</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Crispy Spring Roll</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant">20 orders</span>
+</div>
+<div class="w-36 h-1.5 bg-surface-container rounded-full mt-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 58%"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-currency-price text-currency-price text-on-surface">₹1,200</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">₹60 ea</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(43,19,19,0.04)] flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0 w-14 h-14 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Chilled Indian street nimbu pani lemonade garnished with fresh mint leaves and lemon slice in clear tumbler, sunny outdoor stall drink" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAllYtvFhekQMLh2v7ZF9GRVHcvAf5FqctWvkGxNvXgwLzoQqEhS-iyyru5GtZfyuN4DFcUcusDp4NLW4SYfIoMpoC3Gdt9BHOj1l1q0knyRjXfW7rHsBYAVFpH66nWZhhvK_PuEUnBVxBbgwVP_0Yb6oqrpNRfGw3aOzQ7VBipJnUfRV1ICdMzLe8zwX-1zg7W4dNnf5cEru8OXNZciF7HFeV4wKWTtSg2k8GgnDD1uFDqIoo2HapRnw"/>
+<span class="absolute top-0 left-0 bg-surface-container-highest text-on-surface text-[10px] font-bold px-1 rounded-br">#5</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Masala Nimbu Pani</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant">26 orders</span>
+<span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+<span class="font-body-sm text-body-sm text-secondary font-semibold">78% margin sip</span>
+</div>
+<div class="w-36 h-1.5 bg-surface-container rounded-full mt-1.5 overflow-hidden">
+<div class="bg-secondary-container h-full rounded-full" style="width: 76%"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-currency-price text-currency-price text-on-surface">₹1,040</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">₹40 ea</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-[0_2px_8px_-2px_rgba(43,19,19,0.04)] flex items-center justify-between">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="relative shrink-0 w-14 h-14 rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Vibrant tropical blue lagoon mocktail with crushed ice and citrus wedge in a takeaway transparent cup, street food festival setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9MXwV1YB1-f8AMfUCurVSHegP3WiarZC4HMMucN09bB9gxEhWkNh8716qeiwqhx5Xso--zyrtoISkyHzER3K4lLez9Zl2U7jVgNKqbT7XAKJ3amyVTMoooCFvPNpY5htlBCMnPlmpZ9V3Hsj0zwn4hv07mAGBsd0SaxzccKl37uOy_KmV0ponq3Xni-8t83ZaV3XEM279-8c0GUgI1DbgJnv39rqGXPRBFMB5fTquq32MoxIdUoe1kw"/>
+<span class="absolute top-0 left-0 bg-surface-container-highest text-on-surface text-[10px] font-bold px-1 rounded-br">#6</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-bold truncate">Blue Lagoon Mocktail</span>
+<div class="flex items-center gap-2 mt-0.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant">18 orders</span>
+</div>
+<div class="w-36 h-1.5 bg-surface-container rounded-full mt-1.5 overflow-hidden">
+<div class="bg-outline h-full rounded-full" style="width: 52%"></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-end shrink-0 pl-2">
+<span class="font-currency-price text-currency-price text-on-surface">₹900</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">₹50 ea</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high rounded-xl p-space-lg flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">print</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Daily Z-Report &amp; Tax Summary</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Send PDF to owner WhatsApp &amp; printer</span>
+</div>
+</div>
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md active:scale-95 transition-transform shrink-0">
+      Print Z
+    </button>
+</div>
+</div>
+<script>
+  (function initDashboard() {
+    const tabs = document.querySelectorAll('.period-tab');
+    const grossEl = document.getElementById('kpiGross');
+    const profitEl = document.getElementById('kpiProfit');
+
+    const dataset = {
+      live: { gross: '₹14,860', profit: '₹8,420' },
+      fest1: { gross: '₹28,450', profit: '₹16,210' },
+      fest2: { gross: '₹31,900', profit: '₹18,500' },
+      week: { gross: '₹98,720', profit: '₹55,480' }
+    };
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => {
+          t.className = 'period-tab shrink-0 px-space-md py-space-xs rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all flex items-center gap-1.5';
+        });
+        tab.className = 'period-tab shrink-0 px-space-md py-space-xs rounded-full bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all flex items-center gap-1.5';
+        const key = tab.getAttribute('data-period');
+        if (dataset[key]) {
+          grossEl.textContent = dataset[key].gross;
+          profitEl.textContent = dataset[key].profit;
+        }
+      });
+    });
+
+    const reconcileBtn = document.getElementById('reconcileBtn');
+    const reconcileDrawer = document.getElementById('reconcileDrawer');
+    const closeReconcileBtn = document.getElementById('closeReconcileBtn');
+    const confirmTillBtn = document.getElementById('confirmTillBtn');
+    const countedCashInput = document.getElementById('countedCashInput');
+    const reconcileFeedback = document.getElementById('reconcileFeedback');
+
+    if (reconcileBtn && reconcileDrawer) {
+      reconcileBtn.addEventListener('click', () => {
+        reconcileDrawer.classList.toggle('hidden');
+        reconcileDrawer.classList.toggle('flex');
+      });
+      closeReconcileBtn.addEventListener('click', () => {
+        reconcileDrawer.classList.add('hidden');
+        reconcileDrawer.classList.remove('flex');
+      });
+      confirmTillBtn.addEventListener('click', () => {
+        const val = parseFloat(countedCashInput.value || 0);
+        const diff = val - 6180;
+        reconcileFeedback.classList.remove('hidden');
+        if (diff === 0) {
+          reconcileFeedback.innerHTML = '<span class="material-symbols-outlined text-[16px]">task_alt</span> Physical till matches live cash system! Diff: ₹0';
+          reconcileFeedback.className = 'font-body-sm text-body-sm text-secondary font-semibold flex items-center gap-1 mt-1';
+        } else {
+          reconcileFeedback.innerHTML = `<span class="material-symbols-outlined text-[16px]">warning</span> Discrepancy detected: ${diff > 0 ? '+' : ''}₹${diff}`;
+          reconcileFeedback.className = 'font-body-sm text-body-sm text-error font-semibold flex items-center gap-1 mt-1';
+        }
+      });
+    }
+
+    const exportBtn = document.getElementById('exportReportBtn');
+    if (exportBtn) {
+      exportBtn.addEventListener('click', () => {
+        const originalText = exportBtn.innerHTML;
+        exportBtn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">sync</span><span>Exporting...</span>';
+        setTimeout(() => {
+          exportBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]">check</span><span>Ready!</span>';
+          setTimeout(() => { exportBtn.innerHTML = originalText; }, 1800);
+        }, 800);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_20px_rgba(45,21,21,0.08)]" data-active-classes="text-primary-container font-bold scale-[1.03]"><div class="flex justify-around items-stretch h-20 px-space-xs"><a class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] text-on-surface-variant transition-all" data-path="pos-billing" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">point_of_sale</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">POS Billing</span></a><a class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] text-on-surface-variant transition-all" data-path="history" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">receipt_long</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">History</span></a><a aria-current="page" class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] transition-all text-primary-container font-bold scale-[1.03]" data-path="reports" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">insights</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">Reports</span></a><a class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] text-on-surface-variant transition-all" data-path="menu-costs" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">restaurant_menu</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">Menu &amp; Costs</span></a></div></nav></body></html>

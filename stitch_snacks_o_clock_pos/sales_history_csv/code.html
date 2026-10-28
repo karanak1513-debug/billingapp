@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>Snacks O'Clock POS</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "tertiary-container": "#411f00", "secondary-fixed": "#ffdbce", "surface-container-low": "#fff0ef", "on-background": "#2d1515", "on-error-container": "#93000a", "on-surface-variant": "#524345", "primary-container": "#4a1521", "outline": "#857374", "on-secondary-container": "#772f0d", "surface-container-highest": "#ffdad8", "inverse-surface": "#452929", "surface-container-lowest": "#ffffff", "secondary": "#974723", "surface-container-high": "#ffe1e0", "on-tertiary-container": "#d77604", "inverse-on-surface": "#ffedeb", "surface-dim": "#fccfce", "on-tertiary-fixed": "#2f1500", "on-primary": "#ffffff", "outline-variant": "#d7c1c3", "on-primary-fixed-variant": "#71333f", "primary-fixed-dim": "#ffb2bd", "surface-bright": "#fff8f7", "error-container": "#ffdad6", "on-primary-container": "#c57985", "on-tertiary-fixed-variant": "#6e3900", "on-primary-fixed": "#3a0815", "secondary-fixed-dim": "#ffb598", "inverse-primary": "#ffb2bd", "background": "#fff8f7", "on-secondary-fixed-variant": "#79310e", "tertiary-fixed-dim": "#ffb77d", "on-surface": "#2d1515", "error": "#ba1a1a", "surface-tint": "#8d4a56", "tertiary-fixed": "#ffdcc3", "on-error": "#ffffff", "primary-fixed": "#ffd9dd", "on-secondary-fixed": "#370e00", "primary": "#2f020d", "secondary-container": "#ff996e", "on-secondary": "#ffffff", "surface": "#fff8f7", "on-tertiary": "#ffffff", "tertiary": "#230e00", "surface-container": "#ffe9e8", "surface-variant": "#ffdad8" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "0.5rem", "space-md": "0.75rem", "margin": "1.5rem", "space-xl": "2rem", "margin-mobile": "1rem", "gutter": "1rem", "space-xs": "0.25rem", "gutter-mobile": "0.75rem", "space-lg": "1.25rem" }, fontFamily: { "body-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "numeric-keypad": ["Space Grotesk"], "headline-lg": ["Epilogue"], "label-sm": ["Space Grotesk"], "headline-lg-mobile": ["Epilogue"], "display": ["Epilogue"], "label-md": ["Space Grotesk"], "body-md": ["Plus Jakarta Sans"], "headline-md": ["Epilogue"], "headline-sm": ["Epilogue"], "currency-price": ["Space Grotesk"] }, fontSize: { "body-lg": ["16px", { lineHeight: "24px", fontWeight: "500" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "numeric-keypad": ["24px", { lineHeight: "28px", letterSpacing: "0.02em", fontWeight: "700" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "700" }], "display": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }], "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.03em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "headline-md": ["22px", { lineHeight: "28px", fontWeight: "600" }], "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }], "currency-price": ["20px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "700" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; } body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-primary-container/95 backdrop-blur-xl shadow-[0_4px_20px_rgba(74,21,33,0.15)] pt-safe"><div class="h-20 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex flex-col justify-center min-w-0"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider">Active Shift • Live</span></div><h1 class="font-headline-sm text-headline-sm text-on-primary truncate tracking-tight">Snacks O'Clock</h1><p class="font-body-sm text-body-sm text-secondary-fixed/90 truncate">Snacks • Sips • Good Vibes</p></div><div class="flex items-center gap-space-sm shrink-0"><button aria-label="Quick Cart" class="relative flex items-center justify-center min-w-[44px] min-h-[44px] px-space-sm rounded-xl bg-tertiary-container/80 text-secondary-container active:scale-95 transition-transform"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span class="absolute -top-1 -right-1 flex items-center justify-center min-w-[20px] h-[20px] px-1 rounded-full bg-secondary text-on-secondary font-label-sm text-[10px] font-bold shadow-md">0</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin-mobile pt-20 pb-28 bg-surface min-h-screen"><div class="flex flex-col w-full gap-space-md">
+<!-- Status & Quick Action Header -->
+<div class="flex items-center justify-between gap-space-sm pt-space-xs">
+<div class="flex items-center gap-space-xs bg-surface-container-high px-space-sm py-1 rounded-full shadow-sm">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface font-bold tracking-tight">Sync Status: Offline Ready / IndexedDB Synced</span>
+</div>
+<button class="flex items-center gap-1.5 bg-primary-container text-on-primary px-space-md py-1.5 rounded-full shadow-sm active:scale-95 transition-transform" id="exportCsvBtn">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-bold">Export CSV</span>
+</button>
+</div>
+<!-- Search & Filter Controls -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-sm rounded-xl shadow-sm">
+<div class="relative flex items-center w-full">
+<span class="material-symbols-outlined absolute left-3 text-outline text-[20px] pointer-events-none">search</span>
+<input class="w-full bg-surface-container-lowest text-on-surface font-body-md text-body-md pl-10 pr-9 py-2.5 rounded-lg outline-none placeholder:text-outline-variant shadow-inner transition-all" id="billSearchInput" placeholder="Search Bill #, Karan, Walk-in..." type="text"/>
+<button class="hidden absolute right-3 text-outline hover:text-on-surface" id="clearSearchBtn">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+</div>
+<!-- Quick Date Filter Scrollable Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto py-1 no-scrollbar text-nowrap">
+<button class="date-filter-chip bg-primary-container text-on-primary px-space-md py-1 rounded-full font-label-md text-label-md shadow-sm active:scale-95 transition-all" data-filter="today">
+        Today
+      </button>
+<button class="date-filter-chip bg-surface-container-highest text-on-surface-variant px-space-md py-1 rounded-full font-label-md text-label-md active:scale-95 transition-all" data-filter="yesterday">
+        Yesterday
+      </button>
+<button class="date-filter-chip bg-surface-container-highest text-on-surface-variant px-space-md py-1 rounded-full font-label-md text-label-md active:scale-95 transition-all" data-filter="fest">
+        This Fest / Week
+      </button>
+<button class="date-filter-chip flex items-center gap-1 bg-surface-container-highest text-on-surface-variant px-space-md py-1 rounded-full font-label-md text-label-md active:scale-95 transition-all" data-filter="custom">
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+        Custom
+      </button>
+</div>
+</div>
+<!-- Quick Metrics KPI Card Strip -->
+<div class="grid grid-cols-3 gap-space-xs bg-primary-container text-on-primary p-space-sm rounded-xl shadow-md">
+<div class="flex flex-col items-center justify-center p-space-xs bg-surface-container-lowest/10 rounded-lg text-center">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider">Total Sales</span>
+<span class="font-currency-price text-currency-price tracking-tight text-on-primary mt-0.5">₹14,860</span>
+<span class="font-body-sm text-body-sm text-secondary-fixed-dim scale-90">Selected</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-xs bg-surface-container-lowest/10 rounded-lg text-center">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider">Orders</span>
+<span class="font-currency-price text-currency-price tracking-tight text-on-primary mt-0.5">68</span>
+<span class="font-body-sm text-body-sm text-secondary-fixed-dim scale-90">Completed</span>
+</div>
+<div class="flex flex-col items-center justify-center p-space-xs bg-surface-container-lowest/10 rounded-lg text-center">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider">Avg Ticket</span>
+<span class="font-currency-price text-currency-price tracking-tight text-on-primary mt-0.5">₹218</span>
+<span class="font-body-sm text-body-sm text-secondary-fixed-dim scale-90">Per Bill</span>
+</div>
+</div>
+<!-- Historical Bills Stream -->
+<div class="flex flex-col gap-space-sm" id="billsContainer">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant font-bold">Audit Trail &amp; Receipts (4)</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">Auto-synced just now</span>
+</div>
+<!-- Bill Row #1: SOC-1048 -->
+<article class="bill-card bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-space-xs active:bg-surface-container-low transition-colors" data-bill-id="SOC-1048" data-customer="Karan">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">#SOC-1048</span>
+<span class="flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+              Verified &amp; Paid
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            Today, 4:15 PM • Customer: <strong class="text-on-surface">Karan</strong>
+</p>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-currency-price text-currency-price text-primary tracking-tight font-bold">₹220</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">PhonePe UPI</span>
+</div>
+</div>
+<!-- Payment & Meta Sub-badge -->
+<div class="flex items-center justify-between bg-surface-container-low px-space-xs py-1 rounded-lg">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[15px] text-secondary">account_balance_wallet</span>
+<span class="truncate">karan1513.wallet</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0 font-bold">3 items</span>
+</div>
+<!-- Items Ordered -->
+<p class="font-body-md text-body-md text-on-surface truncate">
+        Classic Fries <span class="text-secondary font-bold">x1</span>, Cheese Fries <span class="text-secondary font-bold">x1</span>, Blue Lagoon <span class="text-secondary font-bold">x1</span>
+</p>
+<!-- Action Footer: View & Reprint -->
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="view-receipt-btn flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold active:scale-95 transition-transform" data-id="SOC-1048">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+          Digital Receipt
+        </button>
+<button class="reprint-btn flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-bold active:scale-95 transition-transform" data-id="SOC-1048">
+<span class="material-symbols-outlined text-[16px]">print</span>
+          Reprint
+        </button>
+</div>
+</article>
+<!-- Bill Row #2: SOC-1047 -->
+<article class="bill-card bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-space-xs active:bg-surface-container-low transition-colors" data-bill-id="SOC-1047" data-customer="Walk-in">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">#SOC-1047</span>
+<span class="flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-surface-container text-on-secondary-container font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Paid
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            Today, 3:58 PM • Customer: <strong class="text-on-surface">Walk-in</strong>
+</p>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-currency-price text-currency-price text-primary tracking-tight font-bold">₹340</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Cash</span>
+</div>
+</div>
+<!-- Payment & Meta Sub-badge -->
+<div class="flex items-center justify-between bg-surface-container-low px-space-xs py-1 rounded-lg">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-tertiary">payments</span>
+<span>Cash (Rec: ₹500, Chg: ₹160)</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0 font-bold">4 items</span>
+</div>
+<!-- Items Ordered -->
+<p class="font-body-md text-body-md text-on-surface truncate">
+        Peri Peri Fries <span class="text-secondary font-bold">x2</span>, Nimbu Pani <span class="text-secondary font-bold">x2</span>
+</p>
+<!-- Action Footer: View & Reprint -->
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="view-receipt-btn flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold active:scale-95 transition-transform" data-id="SOC-1047">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+          Digital Receipt
+        </button>
+<button class="reprint-btn flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-bold active:scale-95 transition-transform" data-id="SOC-1047">
+<span class="material-symbols-outlined text-[16px]">print</span>
+          Reprint
+        </button>
+</div>
+</article>
+<!-- Bill Row #3: SOC-1046 -->
+<article class="bill-card bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-space-xs active:bg-surface-container-low transition-colors" data-bill-id="SOC-1046" data-customer="Walk-in">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">#SOC-1046</span>
+<span class="flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-surface-container-high text-on-tertiary-container font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+              Verified &amp; Paid
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            Today, 3:42 PM • Customer: <strong class="text-on-surface">Counter</strong>
+</p>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-currency-price text-currency-price text-primary tracking-tight font-bold">₹100</span>
+<span class="font-label-sm text-label-sm text-secondary font-medium">PhonePe UPI</span>
+</div>
+</div>
+<!-- Payment & Meta Sub-badge -->
+<div class="flex items-center justify-between bg-surface-container-low px-space-xs py-1 rounded-lg">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm truncate">
+<span class="material-symbols-outlined text-[15px] text-secondary">qr_code_2</span>
+<span class="truncate">UPI Reference: OKAX-89128</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0 font-bold">1 item</span>
+</div>
+<!-- Items Ordered -->
+<p class="font-body-md text-body-md text-on-surface truncate">
+        Cheese Fries <span class="text-secondary font-bold">x1</span>
+</p>
+<!-- Action Footer: View & Reprint -->
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="view-receipt-btn flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold active:scale-95 transition-transform" data-id="SOC-1046">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+          Digital Receipt
+        </button>
+<button class="reprint-btn flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-bold active:scale-95 transition-transform" data-id="SOC-1046">
+<span class="material-symbols-outlined text-[16px]">print</span>
+          Reprint
+        </button>
+</div>
+</article>
+<!-- Bill Row #4: SOC-1045 -->
+<article class="bill-card bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex flex-col gap-space-xs active:bg-surface-container-low transition-colors" data-bill-id="SOC-1045" data-customer="Walk-in">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">#SOC-1045</span>
+<span class="flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-surface-container text-on-secondary-container font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+              Paid
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+            Today, 3:20 PM • Customer: <strong class="text-on-surface">Walk-in</strong>
+</p>
+</div>
+<div class="flex flex-col items-end shrink-0">
+<span class="font-currency-price text-currency-price text-primary tracking-tight font-bold">₹290</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Cash</span>
+</div>
+</div>
+<!-- Payment & Meta Sub-badge -->
+<div class="flex items-center justify-between bg-surface-container-low px-space-xs py-1 rounded-lg">
+<div class="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px] text-tertiary">payments</span>
+<span>Cash Tendered: ₹290 exact</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant shrink-0 font-bold">4 items</span>
+</div>
+<!-- Items Ordered -->
+<p class="font-body-md text-body-md text-on-surface truncate">
+        Spring Roll <span class="text-secondary font-bold">x2</span>, Classic Fries <span class="text-secondary font-bold">x1</span>, Nimbu Pani <span class="text-secondary font-bold">x1</span>
+</p>
+<!-- Action Footer: View & Reprint -->
+<div class="flex items-center justify-end gap-space-xs pt-1">
+<button class="view-receipt-btn flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold active:scale-95 transition-transform" data-id="SOC-1045">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+          Digital Receipt
+        </button>
+<button class="reprint-btn flex items-center gap-1 px-space-md py-1.5 rounded-lg bg-secondary text-on-secondary font-label-sm text-label-sm font-bold active:scale-95 transition-transform" data-id="SOC-1045">
+<span class="material-symbols-outlined text-[16px]">print</span>
+          Reprint
+        </button>
+</div>
+</article>
+</div>
+<!-- Empty state placeholder for zero matches -->
+<div class="hidden flex-col items-center justify-center p-space-xl text-center bg-surface-container-lowest rounded-xl shadow-sm my-space-sm" id="noResultsState">
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center text-secondary mb-space-sm">
+<span class="material-symbols-outlined text-[28px]">search_off</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">No orders found</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-[240px]">Try adjusting your search criteria or switch the date pill filter above.</p>
+</div>
+<!-- Digital Receipt Drawer/Modal (Hidden by default) -->
+<div class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-inverse-surface/60 backdrop-blur-sm p-space-xs sm:p-space-lg" id="receiptModal">
+<div class="w-full max-w-sm bg-surface-container-lowest rounded-t-2xl sm:rounded-2xl p-space-lg flex flex-col gap-space-sm shadow-xl animate-in slide-in-from-bottom duration-200">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">Snacks O'Clock POS</span>
+</div>
+<button class="p-1 rounded-full text-on-surface-variant hover:bg-surface-container-high" id="closeModalBtn">
+<span class="material-symbols-outlined text-[24px]">close</span>
+</button>
+</div>
+<!-- Receipt Content Box -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-2 font-mono text-xs">
+<div class="text-center pb-2">
+<p class="font-bold text-sm tracking-wide text-primary">TAX INVOICE / RECEIPT</p>
+<p class="text-on-surface-variant text-[11px]" id="modalBillDate">Today • 4:15 PM</p>
+<p class="text-on-surface-variant text-[11px]" id="modalBillNum">Bill #SOC-1048</p>
+</div>
+<div class="flex justify-between py-1 bg-surface-container-highest px-2 rounded font-bold text-on-surface">
+<span>Item</span>
+<span>Qty x Price</span>
+</div>
+<div class="flex flex-col gap-1.5 py-1 text-on-surface" id="modalItemsList">
+<div class="flex justify-between">
+<span>Classic Salted Fries</span>
+<span>1 x ₹70</span>
+</div>
+<div class="flex justify-between">
+<span>Cheesy Loaded Fries</span>
+<span>1 x ₹90</span>
+</div>
+<div class="flex justify-between">
+<span>Blue Lagoon Mocktail</span>
+<span>1 x ₹60</span>
+</div>
+</div>
+<div class="flex justify-between pt-2 mt-1 font-bold text-sm text-primary">
+<span>Grand Total</span>
+<span id="modalGrandTotal">₹220</span>
+</div>
+<div class="text-[10px] text-center text-on-surface-variant pt-2">
+          Thank you for snacking with us! ❤️<br/>
+          FSSAI Lic: 21524029000188
+        </div>
+</div>
+<div class="flex gap-space-xs mt-space-xs">
+<button class="flex-1 py-3 bg-secondary text-on-secondary rounded-xl font-label-md text-label-md font-bold flex items-center justify-center gap-1 active:scale-95 transition-transform" id="modalReprintBtn">
+<span class="material-symbols-outlined text-[18px]">print</span>
+          Reprint Thermal Slip
+        </button>
+</div>
+</div>
+</div>
+<!-- Toast Feedback Banner -->
+<div class="hidden fixed bottom-24 left-1/2 -translate-x-1/2 z-50 bg-inverse-surface text-inverse-on-surface px-space-lg py-2.5 rounded-full font-label-md text-label-md shadow-lg flex items-center gap-2" id="toastMessage">
+<span class="material-symbols-outlined text-[18px] text-secondary-container" id="toastIcon">check_circle</span>
+<span id="toastText">Action completed</span>
+</div>
+</div>
+<script>
+  // DOM Elements
+  const searchInput = document.getElementById('billSearchInput');
+  const clearBtn = document.getElementById('clearSearchBtn');
+  const billCards = document.querySelectorAll('.bill-card');
+  const emptyState = document.getElementById('noResultsState');
+  const filterChips = document.querySelectorAll('.date-filter-chip');
+  const receiptModal = document.getElementById('receiptModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const toast = document.getElementById('toastMessage');
+  const toastText = document.getElementById('toastText');
+  const exportCsvBtn = document.getElementById('exportCsvBtn');
+
+  // Search logic
+  function performSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
+
+    if (query.length > 0) {
+      clearBtn.classList.remove('hidden');
+    } else {
+      clearBtn.classList.add('hidden');
+    }
+
+    billCards.forEach(card => {
+      const billId = card.getAttribute('data-bill-id').toLowerCase();
+      const customer = card.getAttribute('data-customer').toLowerCase();
+      const textContent = card.innerText.toLowerCase();
+
+      if (billId.includes(query) || customer.includes(query) || textContent.includes(query)) {
+        card.style.display = 'flex';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    if (visibleCount === 0) {
+      emptyState.classList.remove('hidden');
+      emptyState.classList.add('flex');
+    } else {
+      emptyState.classList.add('hidden');
+      emptyState.classList.remove('flex');
+    }
+  }
+
+  searchInput.addEventListener('input', performSearch);
+  clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    performSearch();
+    searchInput.focus();
+  });
+
+  // Date Filter Chip toggles
+  filterChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      filterChips.forEach(c => {
+        c.classList.remove('bg-primary-container', 'text-on-primary');
+        c.classList.add('bg-surface-container-highest', 'text-on-surface-variant');
+      });
+      chip.classList.remove('bg-surface-container-highest', 'text-on-surface-variant');
+      chip.classList.add('bg-primary-container', 'text-on-primary');
+
+      showToast(`Filtered by: ${chip.innerText.trim()}`);
+    });
+  });
+
+  // Toast notifier helper
+  let toastTimer;
+  function showToast(msg) {
+    clearTimeout(toastTimer);
+    toastText.innerText = msg;
+    toast.classList.remove('hidden');
+    toastTimer = setTimeout(() => {
+      toast.classList.add('hidden');
+    }, 2400);
+  }
+
+  // Export CSV Action
+  exportCsvBtn.addEventListener('click', () => {
+    showToast('Exporting 68 orders to Snacks_Sales.csv...');
+  });
+
+  // View Receipt Modal Interactions
+  document.querySelectorAll('.view-receipt-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const billId = btn.getAttribute('data-id');
+      document.getElementById('modalBillNum').innerText = `Bill #${billId}`;
+      receiptModal.classList.remove('hidden');
+    });
+  });
+
+  closeModalBtn.addEventListener('click', () => {
+    receiptModal.classList.add('hidden');
+  });
+
+  receiptModal.addEventListener('click', (e) => {
+    if (e.target === receiptModal) {
+      receiptModal.classList.add('hidden');
+    }
+  });
+
+  // Reprint Button feedback
+  document.querySelectorAll('.reprint-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const billId = btn.getAttribute('data-id');
+      showToast(`Sending Bill #${billId} to Bluetooth Printer...`);
+    });
+  });
+
+  document.getElementById('modalReprintBtn').addEventListener('click', () => {
+    receiptModal.classList.add('hidden');
+    showToast('Thermal slip sent to printer!');
+  });
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_20px_rgba(45,21,21,0.08)]" data-active-classes="text-primary-container font-bold scale-[1.03]"><div class="flex justify-around items-stretch h-20 px-space-xs"><a class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] text-on-surface-variant transition-all" data-path="pos-billing" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">point_of_sale</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">POS Billing</span></a><a aria-current="page" class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] transition-all text-primary-container font-bold scale-[1.03]" data-path="history" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">receipt_long</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">History</span></a><a class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] text-on-surface-variant transition-all" data-path="reports" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">insights</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">Reports</span></a><a class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] text-on-surface-variant transition-all" data-path="menu-costs" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">restaurant_menu</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">Menu &amp; Costs</span></a></div></nav></body></html>

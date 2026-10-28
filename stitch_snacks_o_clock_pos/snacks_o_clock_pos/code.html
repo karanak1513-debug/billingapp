@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>Snacks O'Clock POS</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "tertiary-container": "#411f00", "secondary-fixed": "#ffdbce", "surface-container-low": "#fff0ef", "on-background": "#2d1515", "on-error-container": "#93000a", "on-surface-variant": "#524345", "primary-container": "#4a1521", "outline": "#857374", "on-secondary-container": "#772f0d", "surface-container-highest": "#ffdad8", "inverse-surface": "#452929", "surface-container-lowest": "#ffffff", "secondary": "#974723", "surface-container-high": "#ffe1e0", "on-tertiary-container": "#d77604", "inverse-on-surface": "#ffedeb", "surface-dim": "#fccfce", "on-tertiary-fixed": "#2f1500", "on-primary": "#ffffff", "outline-variant": "#d7c1c3", "on-primary-fixed-variant": "#71333f", "primary-fixed-dim": "#ffb2bd", "surface-bright": "#fff8f7", "error-container": "#ffdad6", "on-primary-container": "#c57985", "on-tertiary-fixed-variant": "#6e3900", "on-primary-fixed": "#3a0815", "secondary-fixed-dim": "#ffb598", "inverse-primary": "#ffb2bd", "background": "#fff8f7", "on-secondary-fixed-variant": "#79310e", "tertiary-fixed-dim": "#ffb77d", "on-surface": "#2d1515", "error": "#ba1a1a", "surface-tint": "#8d4a56", "tertiary-fixed": "#ffdcc3", "on-error": "#ffffff", "primary-fixed": "#ffd9dd", "on-secondary-fixed": "#370e00", "primary": "#2f020d", "secondary-container": "#ff996e", "on-secondary": "#ffffff", "surface": "#fff8f7", "on-tertiary": "#ffffff", "tertiary": "#230e00", "surface-container": "#ffe9e8", "surface-variant": "#ffdad8" }, borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, spacing: { "space-sm": "0.5rem", "space-md": "0.75rem", "margin": "1.5rem", "space-xl": "2rem", "margin-mobile": "1rem", "gutter": "1rem", "space-xs": "0.25rem", "gutter-mobile": "0.75rem", "space-lg": "1.25rem" }, fontFamily: { "body-lg": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "numeric-keypad": ["Space Grotesk"], "headline-lg": ["Epilogue"], "label-sm": ["Space Grotesk"], "headline-lg-mobile": ["Epilogue"], "display": ["Epilogue"], "label-md": ["Space Grotesk"], "body-md": ["Plus Jakarta Sans"], "headline-md": ["Epilogue"], "headline-sm": ["Epilogue"], "currency-price": ["Space Grotesk"] }, fontSize: { "body-lg": ["16px", { lineHeight: "24px", fontWeight: "500" }], "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }], "numeric-keypad": ["24px", { lineHeight: "28px", letterSpacing: "0.02em", fontWeight: "700" }], "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "700" }], "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "600" }], "headline-lg-mobile": ["26px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "700" }], "display": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "800" }], "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.03em", fontWeight: "600" }], "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }], "headline-md": ["22px", { lineHeight: "28px", fontWeight: "600" }], "headline-sm": ["18px", { lineHeight: "24px", fontWeight: "600" }], "currency-price": ["20px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "700" }] } } } };</script><style>@layer base { html, body { width: 100%; margin: 0; padding: 0; } body { overscroll-behavior-y: none; -webkit-tap-highlight-color: transparent; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style></head><body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col"><header class="fixed top-0 w-full z-50 bg-primary-container/95 backdrop-blur-xl shadow-[0_4px_20px_rgba(74,21,33,0.15)] pt-safe"><div class="h-20 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex flex-col justify-center min-w-0"><div class="flex items-center gap-space-xs"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-wider">Active Shift • Live</span></div><h1 class="font-headline-sm text-headline-sm text-on-primary truncate tracking-tight">Snacks O'Clock</h1><p class="font-body-sm text-body-sm text-secondary-fixed/90 truncate">Snacks • Sips • Good Vibes</p></div><div class="flex items-center gap-space-sm shrink-0"><button aria-label="Quick Cart" class="relative flex items-center justify-center min-w-[44px] min-h-[44px] px-space-sm rounded-xl bg-tertiary-container/80 text-secondary-container active:scale-95 transition-transform"><span class="material-symbols-outlined text-[24px]">shopping_bag</span><span class="absolute -top-1 -right-1 flex items-center justify-center min-w-[20px] h-[20px] px-1 rounded-full bg-secondary text-on-secondary font-label-sm text-[10px] font-bold shadow-md">0</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full px-margin-mobile pt-20 pb-28 bg-surface min-h-screen"><div class="flex flex-col w-full pb-36 select-none" id="posBillingRoot">
+<!-- Realtime Shift Quick Info & Fast Search Bar -->
+<div class="flex items-center gap-space-sm mb-space-md">
+<div class="flex-1 flex items-center bg-surface-container px-space-md py-2.5 rounded-xl text-on-surface-variant shadow-sm focus-within:ring-2 focus-within:ring-primary-container">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant mr-space-xs">search</span>
+<input class="bg-transparent border-0 outline-none w-full font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/70" id="searchInput" placeholder="Search snacks or sips..." type="text"/>
+<button class="hidden text-on-surface-variant/80 active:scale-90 transition-transform" id="clearSearchBtn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+<button aria-label="Quick Custom Item" class="flex items-center justify-center w-11 h-11 rounded-xl bg-surface-container active:scale-95 transition-transform text-primary-container shadow-sm" id="quickCustomBtn">
+<span class="material-symbols-outlined text-[22px]">add_circle</span>
+</button>
+</div>
+<!-- Category Filter Chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar pb-1 mb-space-md">
+<button class="category-chip active flex items-center gap-1.5 px-space-md py-2 rounded-full font-label-md text-label-md bg-primary-container text-on-primary shadow-sm whitespace-nowrap active:scale-95 transition-all" data-cat="all">
+<span>All Items</span>
+<span class="bg-primary/50 text-secondary-fixed text-label-sm px-1.5 py-0.5 rounded-full font-bold font-numeric-keypad">6</span>
+</button>
+<button class="category-chip flex items-center gap-1.5 px-space-md py-2 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant whitespace-nowrap active:scale-95 transition-all" data-cat="snacks">
+<span>Crispy Snacks</span>
+<span class="bg-surface-container-high text-on-surface-variant text-label-sm px-1.5 py-0.5 rounded-full font-bold font-numeric-keypad">4</span>
+</button>
+<button class="category-chip flex items-center gap-1.5 px-space-md py-2 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant whitespace-nowrap active:scale-95 transition-all" data-cat="sips">
+<span>Chilled Sips</span>
+<span class="bg-surface-container-high text-on-surface-variant text-label-sm px-1.5 py-0.5 rounded-full font-bold font-numeric-keypad">2</span>
+</button>
+</div>
+<!-- Menu Item Touch Grid (2-column tactile POS cards) -->
+<div class="grid grid-cols-2 gap-gutter-mobile" id="productGrid">
+<!-- Item 1: Classic Fries (In Cart: 1) -->
+<div class="food-card bg-surface-container-lowest rounded-xl p-space-sm shadow-md flex flex-col justify-between active:scale-[0.98] transition-all" data-cat="snacks" data-id="classic_fries" data-name="Classic Fries" data-price="70">
+<div>
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container mb-space-xs">
+<img alt="Classic Fries" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEj-60TlbXsSR1_ZHpEptAdZtcWxsz2-6H_n4J8Q9wgOTWguSIjIFNGLhZlyQQ-J9Il51vP2MUFFCxEhEMUAdDjG7lb0yo0Wu9EzHc0d7F23wV9lqb_lAWsNOoVB7lU2wGhOjTHrbC-DIz2UIMe8kBh9mdUmAaPuFlD8g_-dj3wZquGRlh0CJoFwf50zkBbEOCqqwtpl8mCYuENfNGu3DshmDktht2DiTMy1s_DQQ-XrDjPNuAturg6w"/>
+<span class="absolute top-1.5 left-1.5 bg-primary-container/90 backdrop-blur-md text-on-primary text-[10px] font-label-sm px-1.5 py-0.5 rounded-md font-bold uppercase tracking-wider">Crispy</span>
+<div class="badge-qty absolute top-1.5 right-1.5 bg-secondary-container text-on-secondary-container font-label-sm px-1.5 py-0.5 rounded-full font-bold shadow-sm">1 in cart</div>
+</div>
+<h2 class="font-headline-sm text-[15px] leading-snug text-on-surface line-clamp-1">Classic Fries</h2>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-currency-price text-currency-price text-primary-container font-bold">₹70</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">/ portion</span>
+</div>
+</div>
+<!-- Stepper / Quick Add -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<div class="stepper-wrap flex items-center gap-1.5 bg-surface-container-low p-1 rounded-lg">
+<button class="btn-minus w-8 h-8 rounded-lg bg-surface-container-lowest text-primary-container flex items-center justify-center font-bold active:bg-secondary-fixed active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty-display font-numeric-keypad font-bold text-body-lg text-primary-container min-w-[18px] text-center">1</span>
+<button class="btn-plus w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold active:bg-primary active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2: Cheese Fries (In Cart: 1) -->
+<div class="food-card bg-surface-container-lowest rounded-xl p-space-sm shadow-md flex flex-col justify-between active:scale-[0.98] transition-all" data-cat="snacks" data-id="cheese_fries" data-name="Cheese Fries" data-price="100">
+<div>
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container mb-space-xs">
+<img alt="Cheese Fries" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClQiwsAeuMrvkWusIJ4uR0jmuoX7fMunlMmaDJy3h_lm0ruthDGI1ZROWsUduiJhrc3enninPhzuJKbxLVa9JavibhHo8cadlA042vkRhOjaduxdK5E7cwVsdOC5cbyLEXWPBNBHm6umdZS7NcmK1bhF8HUo0vGRgZvwyQ0EcFl5-E0a-AUy4zArEIYVgoJhCm9TxBCaKTzfvWjIsDIlH6lvVac4mSkYoFeEa0EsfRR8vfsNjxPt2SYA"/>
+<span class="absolute top-1.5 left-1.5 bg-secondary text-on-secondary text-[10px] font-label-sm px-1.5 py-0.5 rounded-md font-bold uppercase tracking-wider">Bestseller</span>
+<div class="badge-qty absolute top-1.5 right-1.5 bg-secondary-container text-on-secondary-container font-label-sm px-1.5 py-0.5 rounded-full font-bold shadow-sm">1 in cart</div>
+</div>
+<h2 class="font-headline-sm text-[15px] leading-snug text-on-surface line-clamp-1">Cheese Fries</h2>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-currency-price text-currency-price text-primary-container font-bold">₹100</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">/ loaded</span>
+</div>
+</div>
+<!-- Stepper / Quick Add -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<div class="stepper-wrap flex items-center gap-1.5 bg-surface-container-low p-1 rounded-lg">
+<button class="btn-minus w-8 h-8 rounded-lg bg-surface-container-lowest text-primary-container flex items-center justify-center font-bold active:bg-secondary-fixed active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty-display font-numeric-keypad font-bold text-body-lg text-primary-container min-w-[18px] text-center">1</span>
+<button class="btn-plus w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold active:bg-primary active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3: Spring Roll (In Cart: 0) -->
+<div class="food-card bg-surface-container-lowest rounded-xl p-space-sm shadow-md flex flex-col justify-between active:scale-[0.98] transition-all" data-cat="snacks" data-id="spring_roll" data-name="Spring Roll" data-price="60">
+<div>
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container mb-space-xs">
+<img alt="Spring Roll" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEPUUcScuc-LluZbWV9sKjZo099u8rd7ushyxSn-emdqH71YEg-Aic6QCCGOrS9ST8Saw-7SKt9tDlEKERFd2c-oHIOlX8S1sA23xBaVDUYQhOLuDJxL-iWqC-xu3KPqRlrSb0vwqJmfWIZGVFfp9IsnMy7yjcdvwrOpD_nUR6II6NlHU2wYMMyx-LSFpltEPffmjneW3Ll_UClVxMWGEJP7UD_LCJx27ha0dNhC35qUwC8Q4sj3w-YA"/>
+<span class="absolute top-1.5 left-1.5 bg-tertiary-container text-secondary-fixed text-[10px] font-label-sm px-1.5 py-0.5 rounded-md font-bold uppercase tracking-wider">Crispy Veg</span>
+<div class="badge-qty hidden absolute top-1.5 right-1.5 bg-secondary-container text-on-secondary-container font-label-sm px-1.5 py-0.5 rounded-full font-bold shadow-sm">0 in cart</div>
+</div>
+<h2 class="font-headline-sm text-[15px] leading-snug text-on-surface line-clamp-1">Spring Roll</h2>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-currency-price text-currency-price text-primary-container font-bold">₹60</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">/ 2 pcs</span>
+</div>
+</div>
+<!-- Stepper / Quick Add -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<button class="btn-quick-add w-full h-9 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-primary-container flex items-center justify-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add</span>
+</button>
+<div class="stepper-wrap hidden items-center gap-1.5 bg-surface-container-low p-1 rounded-lg w-full justify-between">
+<button class="btn-minus w-8 h-8 rounded-lg bg-surface-container-lowest text-primary-container flex items-center justify-center font-bold active:bg-secondary-fixed active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty-display font-numeric-keypad font-bold text-body-lg text-primary-container min-w-[18px] text-center">0</span>
+<button class="btn-plus w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold active:bg-primary active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 4: Peri Peri Fries (In Cart: 0) -->
+<div class="food-card bg-surface-container-lowest rounded-xl p-space-sm shadow-md flex flex-col justify-between active:scale-[0.98] transition-all" data-cat="snacks" data-id="peri_peri_fries" data-name="Peri Peri Fries" data-price="80">
+<div>
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container mb-space-xs">
+<img alt="Peri Peri Fries" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfhZgcMfdGA-3pukBn-N7cefDjhYznhG_b2sbXz2P64JSsQYoy1LKVRxkiWOELP0K3sQJehAhaPq7JF37JtVkATH5jZKkrfu99NngAMujuNVD4y8vmVzndqnWrB4BjKf07eHSXo9f2y1abVsU-NQonqMjy-krtLjnFklTgLhJ_sZf9LInIw3NNANhGpER_niBkefNdhTPlmX6JjwM8pAbSGnslU8Vi2rbo6YcYHG-ZW0vIfxFO6EcbrQ"/>
+<span class="absolute top-1.5 left-1.5 bg-error text-on-error text-[10px] font-label-sm px-1.5 py-0.5 rounded-md font-bold uppercase tracking-wider flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">local_fire_department</span>Spicy
+          </span>
+<div class="badge-qty hidden absolute top-1.5 right-1.5 bg-secondary-container text-on-secondary-container font-label-sm px-1.5 py-0.5 rounded-full font-bold shadow-sm">0 in cart</div>
+</div>
+<h2 class="font-headline-sm text-[15px] leading-snug text-on-surface line-clamp-1">Peri Peri Fries</h2>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-currency-price text-currency-price text-primary-container font-bold">₹80</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">/ shaken</span>
+</div>
+</div>
+<!-- Stepper / Quick Add -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<button class="btn-quick-add w-full h-9 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-primary-container flex items-center justify-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add</span>
+</button>
+<div class="stepper-wrap hidden items-center gap-1.5 bg-surface-container-low p-1 rounded-lg w-full justify-between">
+<button class="btn-minus w-8 h-8 rounded-lg bg-surface-container-lowest text-primary-container flex items-center justify-center font-bold active:bg-secondary-fixed active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty-display font-numeric-keypad font-bold text-body-lg text-primary-container min-w-[18px] text-center">0</span>
+<button class="btn-plus w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold active:bg-primary active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 5: Blue Lagoon (In Cart: 1) -->
+<div class="food-card bg-surface-container-lowest rounded-xl p-space-sm shadow-md flex flex-col justify-between active:scale-[0.98] transition-all" data-cat="sips" data-id="blue_lagoon" data-name="Blue Lagoon" data-price="50">
+<div>
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container mb-space-xs">
+<img alt="Blue Lagoon Mocktail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhbgnG_EQ3AdP6D9gQv8gFkvHwo5BaHoxKAyVed4zhUx5TggaTvtKcuxjnAepBW8scWSmpCYbE8ecVnlZDJbKC5zbnsVI5BOQxqvM-JBdFTJDlNrgsQFBCKdswM2y-htUZL5LQ16-lRi2AiXL0yYMGM15TPoR7t53Ouhrqc91YJH4I5mFI9A0LLoSDdLV190cmtN9lCBaUwhnIi-TtfZLaPGTvN07br_boIl0jCA4o-zjCEmnmi5Vp_w"/>
+<span class="absolute top-1.5 left-1.5 bg-tertiary-container text-on-tertiary-container text-[10px] font-label-sm px-1.5 py-0.5 rounded-md font-bold uppercase tracking-wider flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">ac_unit</span>Chilled
+          </span>
+<div class="badge-qty absolute top-1.5 right-1.5 bg-secondary-container text-on-secondary-container font-label-sm px-1.5 py-0.5 rounded-full font-bold shadow-sm">1 in cart</div>
+</div>
+<h2 class="font-headline-sm text-[15px] leading-snug text-on-surface line-clamp-1">Blue Lagoon</h2>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-currency-price text-currency-price text-primary-container font-bold">₹50</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">/ 350ml</span>
+</div>
+</div>
+<!-- Stepper / Quick Add -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<div class="stepper-wrap flex items-center gap-1.5 bg-surface-container-low p-1 rounded-lg">
+<button class="btn-minus w-8 h-8 rounded-lg bg-surface-container-lowest text-primary-container flex items-center justify-center font-bold active:bg-secondary-fixed active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty-display font-numeric-keypad font-bold text-body-lg text-primary-container min-w-[18px] text-center">1</span>
+<button class="btn-plus w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold active:bg-primary active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 6: Nimbu Pani (In Cart: 0) -->
+<div class="food-card bg-surface-container-lowest rounded-xl p-space-sm shadow-md flex flex-col justify-between active:scale-[0.98] transition-all" data-cat="sips" data-id="nimbu_pani" data-name="Nimbu Pani" data-price="40">
+<div>
+<div class="relative w-full aspect-square rounded-lg overflow-hidden bg-surface-container mb-space-xs">
+<img alt="Nimbu Pani Shikanji" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD74mgrFrWAr0cuFC1elPms5mJ701HMF8BEuthbwccpEOwjm61WrYoKr4lQo7vh1ZyZFs82qHN1Hmr6eKYVFp7l8yWuK5jsAZ8ou17aO4MhQEJWoQF4K07E2vpazEfnhq18pZzqayTBp7yawUWi9bSamPaaSaqVO8VouXDUihRN99pqiK9TYWkDrERNODgfgkevCY4tn2oty7XsSNnvxO6unLHgHyM1x2P9OGxPchrI6zV5h_-tk_Nyow"/>
+<span class="absolute top-1.5 left-1.5 bg-primary-container/90 backdrop-blur-md text-on-primary text-[10px] font-label-sm px-1.5 py-0.5 rounded-md font-bold uppercase tracking-wider">Fresh Lime</span>
+<div class="badge-qty hidden absolute top-1.5 right-1.5 bg-secondary-container text-on-secondary-container font-label-sm px-1.5 py-0.5 rounded-full font-bold shadow-sm">0 in cart</div>
+</div>
+<h2 class="font-headline-sm text-[15px] leading-snug text-on-surface line-clamp-1">Nimbu Pani</h2>
+<div class="flex items-baseline gap-1 mt-0.5">
+<span class="font-currency-price text-currency-price text-primary-container font-bold">₹40</span>
+<span class="font-body-sm text-[11px] text-on-surface-variant">/ classic</span>
+</div>
+</div>
+<!-- Stepper / Quick Add -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between">
+<button class="btn-quick-add w-full h-9 rounded-lg bg-surface-container font-label-md text-label-md font-bold text-primary-container flex items-center justify-center gap-1 active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add</span>
+</button>
+<div class="stepper-wrap hidden items-center gap-1.5 bg-surface-container-low p-1 rounded-lg w-full justify-between">
+<button class="btn-minus w-8 h-8 rounded-lg bg-surface-container-lowest text-primary-container flex items-center justify-center font-bold active:bg-secondary-fixed active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">remove</span>
+</button>
+<span class="item-qty-display font-numeric-keypad font-bold text-body-lg text-primary-container min-w-[18px] text-center">0</span>
+<button class="btn-plus w-8 h-8 rounded-lg bg-primary-container text-on-primary flex items-center justify-center font-bold active:bg-primary active:scale-90 transition-transform shadow-xs">
+<span class="material-symbols-outlined text-[16px]">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Cart Slide-up Drawer Backdrop -->
+<div class="fixed inset-0 bg-primary/60 backdrop-blur-sm z-40 hidden transition-opacity opacity-0" id="cartDrawerBackdrop"></div>
+<!-- Cart Slide-up Bottom Sheet (Drawer) -->
+<div class="fixed left-0 right-0 bottom-0 bg-surface-container-lowest rounded-t-3xl z-50 shadow-2xl transform translate-y-full transition-transform duration-300 ease-out max-h-[85vh] flex flex-col" id="cartDrawer">
+<!-- Drawer Drag Bar & Header -->
+<div class="p-space-md pb-space-sm flex flex-col items-center border-b-0 cursor-pointer" id="drawerHeaderToggle">
+<div class="w-12 h-1.5 bg-surface-variant rounded-full mb-space-sm"></div>
+<div class="w-full flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary-container/30 flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[18px]">receipt_long</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Order Breakdown</h3>
+<p class="font-body-sm text-[11px] text-on-surface-variant" id="drawerShiftBadge">Token #042 • Cashier: Rahul</p>
+</div>
+</div>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant active:scale-90" id="closeDrawerBtn">
+<span class="material-symbols-outlined text-[18px]">expand_more</span>
+</button>
+</div>
+</div>
+<!-- Scrollable Cart Content -->
+<div class="overflow-y-auto px-space-md py-space-sm flex-1 flex flex-col gap-space-sm">
+<!-- Customer Identifier -->
+<div class="bg-surface-container-low rounded-xl p-space-sm flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[20px] text-secondary">badge</span>
+<input class="w-full bg-transparent border-0 outline-none font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/70" id="custNameInput" placeholder="Optional: Student Name / Token note" type="text"/>
+</div>
+<!-- Live Cart Items List -->
+<div class="flex flex-col gap-2 mt-1" id="drawerCartItems">
+<!-- Dynamically rendered via JS -->
+</div>
+<!-- Quick Toggles / Modifiers -->
+<div class="mt-2 pt-2 border-t border-surface-variant/40 flex items-center justify-between text-on-surface-variant text-body-sm">
+<label class="flex items-center gap-2 cursor-pointer">
+<input class="w-4 h-4 rounded text-primary-container accent-primary-container" id="spicyChilliAddon" type="checkbox"/>
+<span>Extra Peri Dust (+₹10)</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary-container accent-primary-container" id="parcelPack" type="checkbox"/>
+<span>Parcel / Takeaway</span>
+</label>
+</div>
+<!-- Billing Totals Breakdown -->
+<div class="bg-surface-container rounded-xl p-space-md mt-2 flex flex-col gap-1.5 font-body-md">
+<div class="flex justify-between text-on-surface-variant text-body-sm">
+<span>Subtotal</span>
+<span class="font-numeric-keypad font-bold" id="billSubtotal">₹220</span>
+</div>
+<div class="flex justify-between text-on-surface-variant text-body-sm">
+<span>Taxes / Stall Levies (0%)</span>
+<span class="font-numeric-keypad">₹0</span>
+</div>
+<div class="flex justify-between text-on-surface font-headline-sm text-headline-sm pt-1 border-t border-surface-variant/50">
+<span>Grand Total</span>
+<span class="font-currency-price text-currency-price text-primary-container" id="billGrandTotal">₹220</span>
+</div>
+</div>
+</div>
+<!-- Settlement Actions in Drawer -->
+<div class="p-space-md pt-2 pb-safe bg-surface-container-lowest flex flex-col gap-space-xs">
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="h-12 rounded-xl bg-surface-container font-label-md text-label-md font-bold text-on-surface flex items-center justify-center gap-1.5 active:scale-95 transition-transform" id="drawerCashBtn">
+<span class="material-symbols-outlined text-[20px] text-secondary">payments</span>
+<span>Cash (Exact)</span>
+</button>
+<button class="h-12 rounded-xl bg-secondary text-on-secondary font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 active:scale-95 transition-transform" id="drawerUpiBtn">
+<span class="material-symbols-outlined text-[20px]">qr_code_2</span>
+<span>Scan PhonePe</span>
+</button>
+</div>
+<button class="w-full h-14 rounded-xl bg-primary-container text-on-primary font-headline-sm text-[16px] font-bold flex items-center justify-between px-space-md active:scale-[0.99] transition-transform shadow-lg" id="drawerConfirmPayBtn">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[22px]">check_circle</span>
+<span>Complete Order</span>
+</span>
+<span class="font-currency-price text-currency-price text-secondary-fixed" id="drawerPayBtnTotal">₹220 →</span>
+</button>
+</div>
+</div>
+<!-- Persistent Sticky Bottom Order Bar (Pinned directly above the Global Bottom Nav bar) -->
+<div class="fixed bottom-20 left-0 right-0 z-30 px-margin-mobile pb-2 pointer-events-none">
+<div class="pointer-events-auto w-full bg-primary-container text-on-primary rounded-2xl shadow-[0_8px_30px_rgba(47,2,13,0.35)] p-space-sm pl-space-md flex items-center justify-between transition-transform duration-200" id="stickyOrderBar">
+<!-- Cart preview & clear btn -->
+<div class="flex items-center gap-space-sm min-w-0">
+<button aria-label="Clear active order" class="w-10 h-10 rounded-xl bg-primary/60 text-secondary-fixed hover:text-on-primary flex items-center justify-center active:scale-90 transition-transform" id="clearCartBtn">
+<span class="material-symbols-outlined text-[20px]">delete_sweep</span>
+</button>
+<div class="flex flex-col cursor-pointer" id="cartSummaryTapArea">
+<div class="flex items-center gap-1.5">
+<span class="font-numeric-keypad font-bold text-headline-sm text-secondary-container" id="barItemCount">3 items</span>
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container animate-ping"></span>
+</div>
+<span class="font-body-sm text-[11px] text-secondary-fixed/80 underline decoration-dotted">View ticket details</span>
+</div>
+</div>
+<!-- Total & Checkout Primary CTA -->
+<div class="flex items-center gap-space-xs">
+<button class="h-12 px-space-md rounded-xl bg-secondary-container text-on-secondary-container font-label-md text-[14px] font-bold flex items-center gap-2 shadow-md active:scale-95 transition-transform" id="barPayBtn">
+<span class="font-currency-price font-numeric-keypad" id="barGrandTotal">₹220</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick UPI QR Payment Modal -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-space-md bg-primary/70 backdrop-blur-md hidden opacity-0 transition-opacity duration-200" id="upiModal">
+<div class="bg-surface-container-lowest rounded-2xl p-space-lg w-full max-w-sm flex flex-col items-center text-center shadow-2xl relative">
+<button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant active:scale-90" id="closeUpiBtn">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+<div class="w-12 h-12 rounded-full bg-secondary-container/30 text-secondary flex items-center justify-center mb-space-xs">
+<span class="material-symbols-outlined text-[28px]">qr_code_scanner</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Scan &amp; Pay</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-space-sm">UPI ID: snackz.oclock@okhdfcbank</p>
+<!-- Simulated Dynamic QR code -->
+<div class="p-3 bg-surface-container-lowest rounded-xl shadow-md border-2 border-primary-container/10 mb-space-sm flex flex-col items-center">
+<svg class="w-48 h-48" fill="none" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#FFF8F7" height="100" width="100"></rect>
+<!-- Position Markers Top-Left -->
+<rect fill="#4A1521" height="24" rx="3" width="24" x="8" y="8"></rect>
+<rect fill="#FFF8F7" height="14" width="14" x="13" y="13"></rect>
+<rect fill="#4A1521" height="8" width="8" x="16" y="16"></rect>
+<!-- Position Markers Top-Right -->
+<rect fill="#4A1521" height="24" rx="3" width="24" x="68" y="8"></rect>
+<rect fill="#FFF8F7" height="14" width="14" x="73" y="13"></rect>
+<rect fill="#4A1521" height="8" width="8" x="76" y="16"></rect>
+<!-- Position Markers Bottom-Left -->
+<rect fill="#4A1521" height="24" rx="3" width="24" x="8" y="68"></rect>
+<rect fill="#FFF8F7" height="14" width="14" x="13" y="73"></rect>
+<rect fill="#4A1521" height="8" width="8" x="16" y="76"></rect>
+<!-- Data Blocks -->
+<rect fill="#4A1521" height="6" width="6" x="36" y="10"></rect>
+<rect fill="#4A1521" height="6" width="14" x="46" y="10"></rect>
+<rect fill="#4A1521" height="8" width="8" x="36" y="20"></rect>
+<rect fill="#4A1521" height="6" width="10" x="50" y="22"></rect>
+<rect fill="#4A1521" height="6" width="12" x="10" y="38"></rect>
+<rect fill="#4A1521" height="8" width="16" x="26" y="38"></rect>
+<rect fill="#4A1521" height="14" width="8" x="46" y="36"></rect>
+<rect fill="#4A1521" height="8" width="14" x="60" y="38"></rect>
+<rect fill="#4A1521" height="14" width="10" x="80" y="38"></rect>
+<rect fill="#4A1521" height="14" width="8" x="10" y="48"></rect>
+<rect fill="#4A1521" height="6" width="12" x="24" y="50"></rect>
+<rect fill="#4A1521" height="8" width="18" x="40" y="54"></rect>
+<rect fill="#4A1521" height="10" width="10" x="64" y="52"></rect>
+<rect fill="#4A1521" height="12" width="8" x="38" y="68"></rect>
+<rect fill="#4A1521" height="6" width="14" x="52" y="68"></rect>
+<rect fill="#4A1521" height="12" width="18" x="72" y="68"></rect>
+<rect fill="#4A1521" height="8" width="20" x="40" y="84"></rect>
+<rect fill="#4A1521" height="8" width="14" x="66" y="84"></rect>
+</svg>
+<span class="font-currency-price text-headline-sm text-primary-container mt-1" id="qrAmountDisplay">₹220</span>
+</div>
+<div class="flex items-center gap-1.5 text-on-surface-variant font-body-sm text-[12px] mb-space-md">
+<span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span>
+<span>Awaiting customer payment tone...</span>
+</div>
+<button class="w-full h-12 rounded-xl bg-primary-container text-on-primary font-label-md text-label-md font-bold flex items-center justify-center gap-2 active:scale-95 shadow-md" id="simPaymentDoneBtn">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+<span>Simulate Instant Success</span>
+</button>
+</div>
+</div>
+<!-- Success Toast / Haptic feedback banner -->
+<div class="fixed top-24 left-4 right-4 z-50 pointer-events-none transform -translate-y-8 opacity-0 transition-all duration-300 flex items-center justify-between p-3.5 rounded-xl bg-primary-container text-on-primary shadow-xl" id="toastNotification">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-container text-[22px]">check_circle</span>
+<span class="font-body-md text-body-md font-semibold" id="toastMsg">Order Settled! KOT #042 Printed.</span>
+</div>
+<span class="text-secondary-fixed text-label-sm font-numeric-keypad">OK</span>
+</div>
+</div>
+<script>
+(() => {
+  // --- POS State Management ---
+  const state = {
+    items: {
+      classic_fries: { id: 'classic_fries', name: 'Classic Fries', price: 70, qty: 1, cat: 'snacks' },
+      cheese_fries: { id: 'cheese_fries', name: 'Cheese Fries', price: 100, qty: 1, cat: 'snacks' },
+      spring_roll: { id: 'spring_roll', name: 'Spring Roll', price: 60, qty: 0, cat: 'snacks' },
+      peri_peri_fries: { id: 'peri_peri_fries', name: 'Peri Peri Fries', price: 80, qty: 0, cat: 'snacks' },
+      blue_lagoon: { id: 'blue_lagoon', name: 'Blue Lagoon', price: 50, qty: 1, cat: 'sips' },
+      nimbu_pani: { id: 'nimbu_pani', name: 'Nimbu Pani', price: 40, qty: 0, cat: 'sips' }
+    },
+    extraDust: false,
+    orderToken: 42
+  };
+
+  // --- Element Selectors ---
+  const barItemCount = document.getElementById('barItemCount');
+  const barGrandTotal = document.getElementById('barGrandTotal');
+  const stickyOrderBar = document.getElementById('stickyOrderBar');
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartDrawerBackdrop = document.getElementById('cartDrawerBackdrop');
+  const drawerCartItems = document.getElementById('drawerCartItems');
+  const billSubtotal = document.getElementById('billSubtotal');
+  const billGrandTotal = document.getElementById('billGrandTotal');
+  const drawerPayBtnTotal = document.getElementById('drawerPayBtnTotal');
+  const qrAmountDisplay = document.getElementById('qrAmountDisplay');
+  const upiModal = document.getElementById('upiModal');
+  const toastNotification = document.getElementById('toastNotification');
+  const toastMsg = document.getElementById('toastMsg');
+  const searchInput = document.getElementById('searchInput');
+  const clearSearchBtn = document.getElementById('clearSearchBtn');
+  const categoryChips = document.querySelectorAll('.category-chip');
+
+  // Trigger tactile haptics if device supports vibration
+  const triggerHaptic = () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(25);
+    }
+  };
+
+  // Calculate totals
+  const getTotals = () => {
+    let count = 0;
+    let total = 0;
+    Object.values(state.items).forEach(item => {
+      count += item.qty;
+      total += (item.qty * item.price);
+    });
+    if (state.extraDust && count > 0) {
+      total += 10;
+    }
+    return { count, total };
+  };
+
+  // Show Toast
+  const showToast = (message) => {
+    toastMsg.textContent = message;
+    toastNotification.classList.remove('-translate-y-8', 'opacity-0');
+    toastNotification.classList.add('translate-y-0', 'opacity-100');
+    setTimeout(() => {
+      toastNotification.classList.remove('translate-y-0', 'opacity-100');
+      toastNotification.classList.add('-translate-y-8', 'opacity-0');
+    }, 2800);
+  };
+
+  // Update UI Elements across cards, sticky bar, and slide-up drawer
+  const renderPOS = () => {
+    const { count, total } = getTotals();
+
+    // 1. Sync Food Card states
+    Object.values(state.items).forEach(item => {
+      const card = document.querySelector(`.food-card[data-id="${item.id}"]`);
+      if (!card) return;
+
+      const qtyDisplay = card.querySelector('.item-qty-display');
+      const badgeQty = card.querySelector('.badge-qty');
+      const quickAddBtn = card.querySelector('.btn-quick-add');
+      const stepperWrap = card.querySelector('.stepper-wrap');
+
+      if (qtyDisplay) qtyDisplay.textContent = item.qty;
+
+      if (item.qty > 0) {
+        if (badgeQty) {
+          badgeQty.classList.remove('hidden');
+          badgeQty.textContent = `${item.qty} in cart`;
+        }
+        if (quickAddBtn) quickAddBtn.classList.add('hidden');
+        if (stepperWrap) stepperWrap.classList.remove('hidden');
+      } else {
+        if (badgeQty) badgeQty.classList.add('hidden');
+        if (quickAddBtn) quickAddBtn.classList.remove('hidden');
+        if (stepperWrap) stepperWrap.classList.add('hidden');
+      }
+    });
+
+    // 2. Sync Sticky Order Bar
+    if (count > 0) {
+      stickyOrderBar.classList.remove('translate-y-24', 'opacity-0');
+      barItemCount.textContent = `${count} ${count === 1 ? 'item' : 'items'}`;
+      barGrandTotal.textContent = `₹${total}`;
+    } else {
+      // Hide sticky bar when zero items
+      stickyOrderBar.classList.add('translate-y-24', 'opacity-0');
+    }
+
+    // 3. Sync Drawer Totals
+    billSubtotal.textContent = `₹${total - (state.extraDust && count > 0 ? 10 : 0)}`;
+    billGrandTotal.textContent = `₹${total}`;
+    drawerPayBtnTotal.textContent = `₹${total} →`;
+    qrAmountDisplay.textContent = `₹${total}`;
+
+    // 4. Render Cart Drawer item rows
+    drawerCartItems.innerHTML = '';
+    const activeItems = Object.values(state.items).filter(i => i.qty > 0);
+    
+    if (activeItems.length === 0) {
+      drawerCartItems.innerHTML = `
+        <div class="py-8 flex flex-col items-center justify-center text-center text-on-surface-variant">
+          <span class="material-symbols-outlined text-4xl mb-1 opacity-50">shopping_bag</span>
+          <p class="font-body-md">Cart is currently empty</p>
+          <span class="text-body-sm opacity-70">Tap items on the menu to build order</span>
+        </div>
+      `;
+    } else {
+      activeItems.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'flex items-center justify-between p-2 rounded-xl bg-surface-container-low';
+        row.innerHTML = `
+          <div class="flex items-center gap-2 min-w-0">
+            <span class="w-6 h-6 rounded-md bg-primary-container text-on-primary text-[12px] font-numeric-keypad font-bold flex items-center justify-center">${item.qty}x</span>
+            <div class="flex flex-col min-w-0">
+              <span class="font-body-md text-on-surface font-semibold truncate text-[14px]">${item.name}</span>
+              <span class="font-body-sm text-on-surface-variant text-[11px]">₹${item.price} each</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="font-currency-price font-numeric-keypad text-primary-container font-bold text-[15px]">₹${item.qty * item.price}</span>
+            <div class="flex items-center gap-1">
+              <button data-action="dec" data-id="${item.id}" class="drawer-step-btn w-6 h-6 rounded bg-surface-container flex items-center justify-center active:scale-90 text-primary-container">
+                <span class="material-symbols-outlined text-[14px]">remove</span>
+              </button>
+              <button data-action="inc" data-id="${item.id}" class="drawer-step-btn w-6 h-6 rounded bg-primary-container text-on-primary flex items-center justify-center active:scale-90">
+                <span class="material-symbols-outlined text-[14px]">add</span>
+              </button>
+            </div>
+          </div>
+        `;
+        drawerCartItems.appendChild(row);
+      });
+    }
+  };
+
+  // --- Drawer Open / Close Logic ---
+  const openDrawer = () => {
+    cartDrawerBackdrop.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      cartDrawerBackdrop.classList.remove('opacity-0');
+      cartDrawer.classList.remove('translate-y-full');
+    });
+  };
+
+  const closeDrawer = () => {
+    cartDrawerBackdrop.classList.add('opacity-0');
+    cartDrawer.classList.add('translate-y-full');
+    setTimeout(() => {
+      cartDrawerBackdrop.classList.add('hidden');
+    }, 2800);
+  };
+
+  // --- Event Bindings ---
+
+  // Card Clicks (Add, Plus, Minus)
+  document.getElementById('productGrid').addEventListener('click', (e) => {
+    const card = e.target.closest('.food-card');
+    if (!card) return;
+    const itemId = card.dataset.id;
+    if (!state.items[itemId]) return;
+
+    if (e.target.closest('.btn-quick-add') || e.target.closest('.btn-plus')) {
+      triggerHaptic();
+      state.items[itemId].qty += 1;
+      renderPOS();
+    } else if (e.target.closest('.btn-minus')) {
+      triggerHaptic();
+      if (state.items[itemId].qty > 0) {
+        state.items[itemId].qty -= 1;
+        renderPOS();
+      }
+    }
+  });
+
+  // Drawer Stepper clicks
+  drawerCartItems.addEventListener('click', (e) => {
+    const btn = e.target.closest('.drawer-step-btn');
+    if (!btn) return;
+    const itemId = btn.dataset.id;
+    const action = btn.dataset.action;
+    triggerHaptic();
+
+    if (action === 'inc') {
+      state.items[itemId].qty += 1;
+    } else if (action === 'dec') {
+      if (state.items[itemId].qty > 0) {
+        state.items[itemId].qty -= 1;
+      }
+    }
+    renderPOS();
+  });
+
+  // Open Drawer from Sticky Bottom summary
+  document.getElementById('cartSummaryTapArea').addEventListener('click', openDrawer);
+  document.getElementById('barPayBtn').addEventListener('click', openDrawer);
+  document.getElementById('closeDrawerBtn').addEventListener('click', closeDrawer);
+  cartDrawerBackdrop.addEventListener('click', closeDrawer);
+
+  // Clear Entire Cart
+  document.getElementById('clearCartBtn').addEventListener('click', () => {
+    triggerHaptic();
+    Object.keys(state.items).forEach(k => state.items[k].qty = 0);
+    renderPOS();
+    showToast('Cart Cleared');
+  });
+
+  // Add-on Checkbox
+  document.getElementById('spicyChilliAddon').addEventListener('change', (e) => {
+    state.extraDust = e.target.checked;
+    renderPOS();
+  });
+
+  // Category Filter Switching
+  categoryChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      triggerHaptic();
+      categoryChips.forEach(c => {
+        c.classList.remove('bg-primary-container', 'text-on-primary');
+        c.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      chip.classList.add('bg-primary-container', 'text-on-primary');
+      chip.classList.remove('bg-surface-container', 'text-on-surface-variant');
+
+      const cat = chip.dataset.cat;
+      const allCards = document.querySelectorAll('.food-card');
+      allCards.forEach(c => {
+        if (cat === 'all' || c.dataset.cat === cat) {
+          c.classList.remove('hidden');
+        } else {
+          c.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // Live Menu Search filter
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    if (query.length > 0) {
+      clearSearchBtn.classList.remove('hidden');
+    } else {
+      clearSearchBtn.classList.add('hidden');
+    }
+
+    const allCards = document.querySelectorAll('.food-card');
+    allCards.forEach(c => {
+      const name = c.dataset.name.toLowerCase();
+      if (name.includes(query)) {
+        c.classList.remove('hidden');
+      } else {
+        c.classList.add('hidden');
+      }
+    });
+  });
+
+  clearSearchBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    clearSearchBtn.classList.add('hidden');
+    document.querySelectorAll('.food-card').forEach(c => c.classList.remove('hidden'));
+  });
+
+  // Quick Custom Item Tap
+  document.getElementById('quickCustomBtn').addEventListener('click', () => {
+    triggerHaptic();
+    showToast('Custom item prompt opened');
+  });
+
+  // UPI Drawer & Modal Flow
+  const openUpiModal = () => {
+    closeDrawer();
+    upiModal.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      upiModal.classList.remove('opacity-0');
+    });
+  };
+
+  const closeUpiModal = () => {
+    upiModal.classList.add('opacity-0');
+    setTimeout(() => {
+      upiModal.classList.add('hidden');
+    }, 200);
+  };
+
+  document.getElementById('drawerUpiBtn').addEventListener('click', openUpiModal);
+  document.getElementById('closeUpiBtn').addEventListener('click', closeUpiModal);
+
+  // Settlement Final Handlers
+  const completePayment = (methodName) => {
+    triggerHaptic();
+    state.orderToken += 1;
+    const tokenStr = `#0${state.orderToken}`;
+    const name = document.getElementById('custNameInput').value.trim();
+    const customerTag = name ? ` (${name})` : '';
+
+    // Reset cart
+    Object.keys(state.items).forEach(k => state.items[k].qty = 0);
+    renderPOS();
+    closeDrawer();
+    closeUpiModal();
+    document.getElementById('custNameInput').value = '';
+    document.getElementById('drawerShiftBadge').textContent = `Token ${tokenStr} • Cashier: Rahul`;
+
+    showToast(`Order Paid via ${methodName}! KOT ${tokenStr}${customerTag} Sent.`);
+  };
+
+  document.getElementById('drawerCashBtn').addEventListener('click', () => completePayment('Cash'));
+  document.getElementById('drawerConfirmPayBtn').addEventListener('click', () => completePayment('Card/UPI'));
+  document.getElementById('simPaymentDoneBtn').addEventListener('click', () => completePayment('PhonePe QR'));
+
+  // Initial Boot
+  renderPOS();
+})();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_-4px_20px_rgba(45,21,21,0.08)]" data-active-classes="text-primary-container font-bold scale-[1.03]"><div class="flex justify-around items-stretch h-20 px-space-xs"><a aria-current="page" class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] transition-all text-primary-container font-bold scale-[1.03]" data-path="pos-billing" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">point_of_sale</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">POS Billing</span></a><a class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] text-on-surface-variant transition-all" data-path="history" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">receipt_long</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">History</span></a><a class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] text-on-surface-variant transition-all" data-path="reports" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">insights</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">Reports</span></a><a class="flex-1 flex flex-col items-center justify-center gap-1 min-h-[44px] text-on-surface-variant transition-all" data-path="menu-costs" href="#"><div class="p-1 rounded-full"><span class="material-symbols-outlined text-[24px]">restaurant_menu</span></div><span class="font-label-sm text-label-sm tracking-tight text-center">Menu &amp; Costs</span></a></div></nav></body></html>
